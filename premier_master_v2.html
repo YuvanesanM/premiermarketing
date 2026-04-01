@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Marketing — Annual Review & Strategy 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{
+  --bg:#0e1019;--bg2:#161a26;--bg3:#1c2030;--bg4:#232740;
+  --gold:#e9a84c;--gold2:#f5c97a;--gdim:rgba(233,168,76,0.13);--gpale:rgba(233,168,76,0.06);
+  --teal:#2dd4bf;--tdim:rgba(45,212,191,0.11);
+  --red:#f87171;--rdim:rgba(248,113,113,0.11);
+  --green:#4ade80;--grdim:rgba(74,222,128,0.11);
+  --blue:#60a5fa;--bdim:rgba(96,165,250,0.11);
+  --amber:#fbbf24;--adim:rgba(251,191,36,0.11);
+  --purple:#a78bfa;--pink:#f472b6;--gray:#6b7280;
+  --t1:#e8eaf0;--t2:#9ba3b8;--t3:#4e566e;
+  --bdr:rgba(255,255,255,0.07);--bdr2:rgba(255,255,255,0.13);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--t1);font-size:13px;min-height:100vh;}
+
+/* NAV */
+.nav{background:var(--bg2);border-bottom:1px solid var(--bdr2);padding:0 28px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:300;}
+.nb{display:flex;align-items:center;gap:12px;}
+.ni{width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--amber));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Crimson Pro',serif;font-weight:600;color:#1a1200;font-size:14px;}
+.nt{font-size:13px;font-weight:600;}
+.ns{font-size:10px;color:var(--t3);}
+.ntabs{display:flex;gap:2px;}
+.ntb{padding:5px 14px;border-radius:6px;font-size:11px;color:var(--t2);cursor:pointer;border:none;background:transparent;transition:all .2s;white-space:nowrap;}
+.ntb.active{background:var(--gdim);color:var(--gold);font-weight:600;border:1px solid rgba(233,168,76,.25);}
+.ntb:hover:not(.active){color:var(--t1);background:rgba(255,255,255,.05);}
+.nr{font-size:10px;color:var(--t3);border:1px solid var(--bdr2);padding:2px 9px;border-radius:10px;}
+
+/* PAGE */
+.page{display:none;padding:24px 28px;max-width:1360px;margin:0 auto;}
+.page.active{display:block;}
+.ph{margin-bottom:20px;}
+.ph h1{font-family:'Crimson Pro',serif;font-size:26px;font-weight:600;color:var(--gold2);line-height:1.2;}
+.ph p{font-size:11px;color:var(--t3);margin-top:3px;}
+
+/* KPI */
+.krow{display:grid;gap:10px;margin-bottom:16px;}
+.k5{grid-template-columns:repeat(5,1fr);}
+.k4{grid-template-columns:repeat(4,1fr);}
+.k3{grid-template-columns:repeat(3,1fr);}
+.kc{background:var(--bg2);border:1px solid var(--bdr);border-radius:11px;padding:15px 17px;position:relative;overflow:hidden;transition:border-color .2s;}
+.kc:hover{border-color:var(--bdr2);}
+.kc .acc{position:absolute;top:0;left:0;right:0;height:2px;border-radius:11px 11px 0 0;}
+.kl{font-size:10px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;}
+.kv{font-family:'Crimson Pro',serif;font-size:23px;font-weight:600;color:var(--t1);line-height:1;}
+.ks{font-size:11px;margin-top:5px;color:var(--t3);}
+.up{color:var(--green);}
+.dn{color:var(--red);}
+.wa{color:var(--amber);}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;}
+.g65{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:14px;}
+.g56{display:grid;grid-template-columns:1fr 1.5fr;gap:14px;margin-bottom:14px;}
+
+/* CARD */
+.card{background:var(--bg2);border:1px solid var(--bdr);border-radius:11px;padding:18px 20px;}
+.ch{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:5px;}
+.bdg{font-size:10px;font-weight:600;padding:2px 8px;border-radius:9px;}
+.bg{background:var(--grdim);color:var(--green);}
+.br{background:var(--rdim);color:var(--red);}
+.ba{background:var(--adim);color:var(--amber);}
+.bt{background:var(--tdim);color:var(--teal);}
+.bgo{background:var(--gdim);color:var(--gold);}
+.bb{background:var(--bdim);color:var(--blue);}
+.bp{background:rgba(167,139,250,.12);color:var(--purple);}
+
+/* CHART WRAP */
+.cw{position:relative;width:100%;}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:11px;}
+.tbl th{font-size:9px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;padding:6px 9px;text-align:left;border-bottom:1px solid var(--bdr2);}
+.tbl th:not(:first-child){text-align:right;}
+.tbl td{padding:7px 9px;border-bottom:1px solid var(--bdr);color:var(--t1);}
+.tbl td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;}
+.tbl tr:hover td{background:rgba(255,255,255,.025);}
+.tbl .tr td{font-weight:600;color:var(--gold);border-top:1px solid var(--bdr2);background:rgba(233,168,76,.04);}
+.tbl .hl td{color:var(--teal);}
+.tbl .warn td{color:var(--amber);}
+.tbl .bad td{color:var(--red);}
+
+/* LEGEND */
+.leg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;font-size:10px;color:var(--t3);}
+.ld{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle;}
+
+/* INSIGHT */
+.ins{background:var(--gpale);border:1px solid rgba(233,168,76,.18);border-radius:9px;padding:12px 15px;margin-bottom:12px;}
+.ins-t{font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;}
+.ins-b{font-size:11px;color:var(--t2);line-height:1.75;}
+.ins-b strong{color:var(--t1);}
+
+/* RISK */
+.ri{display:flex;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--bdr);margin-bottom:7px;}
+.rb{font-size:9px;font-weight:700;padding:2px 8px;border-radius:9px;white-space:nowrap;letter-spacing:.04em;height:fit-content;margin-top:1px;}
+.rbh{background:var(--rdim);color:var(--red);border:1px solid rgba(248,113,113,.2);}
+.rbm{background:var(--adim);color:var(--amber);border:1px solid rgba(251,191,36,.2);}
+.rbw{background:var(--grdim);color:var(--green);border:1px solid rgba(74,222,128,.2);}
+.rt{font-size:12px;font-weight:500;color:var(--t1);margin-bottom:2px;}
+.rs{font-size:10px;color:var(--t3);line-height:1.6;}
+
+/* FLOW BAR */
+.fb{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.fn{font-size:10px;color:var(--t2);width:140px;text-align:right;flex-shrink:0;}
+.fb-bar{height:20px;border-radius:3px;display:flex;align-items:center;padding:0 7px;font-size:9px;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;}
+.fa{font-size:10px;color:var(--t3);width:55px;flex-shrink:0;}
+
+/* STRATEGY CARD */
+.sc{background:var(--bg2);border:1px solid var(--bdr);border-radius:11px;padding:16px 18px;}
+.sn{font-family:'Crimson Pro',serif;font-size:28px;font-weight:700;color:rgba(233,168,76,.2);line-height:1;margin-bottom:6px;}
+.st{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:6px;}
+.sb{font-size:11px;color:var(--t2);line-height:1.65;}
+.sk{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.sk span{font-size:9px;font-weight:600;padding:2px 8px;border-radius:9px;background:var(--bg4);color:var(--gold);}
+
+/* PROGRESS */
+.pi{margin-bottom:10px;}
+.pr{display:flex;justify-content:space-between;font-size:10px;margin-bottom:3px;}
+.pl{color:var(--t1);font-weight:500;}
+.pv{color:var(--t3);}
+.pb{height:4px;background:var(--bg4);border-radius:3px;overflow:hidden;}
+.pf{height:100%;border-radius:3px;}
+
+/* BUBBLE */
+.bubble{padding:5px 11px;border-radius:18px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--bdr);background:transparent;color:var(--t2);transition:all .2s;}
+.bubble:hover{border-color:var(--bdr2);color:var(--t1);}
+.bubble.active{border-color:var(--gold);background:var(--gdim);color:var(--gold);}
+
+.div{border:none;border-top:1px solid var(--bdr);margin:12px 0;}
+.fp{font-size:10px;color:var(--t3);margin-top:6px;font-style:italic;}
+
+/* CHANNEL PILL */
+.cp{display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:9px;margin:2px;}
+
+@media(max-width:950px){
+  .page{padding:14px;}
+  .k5,.k4{grid-template-columns:1fr 1fr;}
+  .g2,.g65,.g56{grid-template-columns:1fr;}
+  .g3{grid-template-columns:1fr 1fr;}
+  .ntabs{gap:1px;}
+  .ntb{padding:4px 9px;font-size:10px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nb">
+    <div class="ni">P</div>
+    <div><div class="nt">Premier Marketing</div><div class="ns">Annual Review FY25-26 · Strategy FY26-27</div></div>
+  </div>
+  <div class="ntabs">
+    <button class="ntb active" onclick="show('overview',this)">Overview</button>
+    <button class="ntb" onclick="show('pl',this)">P&amp;L Analysis</button>
+    <button class="ntb" onclick="show('products',this)">Products &amp; Channels</button>
+    <button class="ntb" onclick="show('states',this)">State Intelligence</button>
+    <button class="ntb" onclick="show('risks',this)">Risks &amp; Watch List</button>
+    <button class="ntb" onclick="show('strategy',this)">FY27 Strategy</button>
+  </div>
+  <div class="nr">Confidential · 31 Mar 2026</div>
+</nav>
+
+<!-- ══════════════════════ PAGE 1: OVERVIEW ══════════════════════ -->
+<div id="page-overview" class="page active">
+  <div class="ph"><h1>Annual Performance Overview</h1><p>FY 2024–25 vs FY 2025–26 · All key financial indicators</p></div>
+
+  <div class="krow k5">
+    <div class="kc"><div class="acc" style="background:var(--gold)"></div>
+      <div class="kl">Net Revenue</div><div class="kv">₹116.9 Cr</div>
+      <div class="ks"><span class="up">↑ 3.5%</span> vs ₹112.9 Cr FY25</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--green)"></div>
+      <div class="kl">Gross Profit</div><div class="kv">₹21.33 Cr</div>
+      <div class="ks"><span class="up">GP% 18.25%</span> vs 18.0% FY25 · ↑23 bps</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--amber)"></div>
+      <div class="kl">Net Profit</div><div class="kv">₹1.26 Cr</div>
+      <div class="ks">NP% <span class="wa">1.08%</span> · FY25: 2.27%</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--teal)"></div>
+      <div class="kl">Closing Stock</div><div class="kv">₹8.3 Cr</div>
+      <div class="ks"><span class="up">↓ 44.8%</span> from ₹15.1 Cr · 0.86 months</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--blue)"></div>
+      <div class="kl">Total Purchases</div><div class="kv">₹79.7 Cr</div>
+      <div class="ks"><span class="up">↓ 4.9%</span> from ₹83.8 Cr FY25</div>
+    </div>
+  </div>
+
+  <div class="krow k5">
+    <div class="kc"><div class="acc" style="background:var(--red)"></div>
+      <div class="kl">Sundry Debtors</div><div class="kv">₹18.2 Cr</div>
+      <div class="ks"><span class="dn">~57 days</span> · 11× net profit</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--purple)"></div>
+      <div class="kl">Staff Cost</div><div class="kv">₹9.07 Cr</div>
+      <div class="ks">7.76% of sales · vs 7.93% FY25</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--amber)"></div>
+      <div class="kl">Admin & Selling</div><div class="kv">₹19.29 Cr</div>
+      <div class="ks">16.51% of sales · vs 17.4% FY25</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--teal)"></div>
+      <div class="kl">Bank Interest</div><div class="kv">₹35.4 L</div>
+      <div class="ks"><span class="up">↓ 14.8%</span> from ₹41.6L · OCC reducing</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--green)"></div>
+      <div class="kl">Active States</div><div class="kv">18</div>
+      <div class="ks">TN 79.5% · KL 6.0% · MH 3.8%</div>
+    </div>
+  </div>
+
+  <div class="g65">
+    <div class="card">
+      <div class="ch">P&L year-on-year — key lines (₹ Crores) <span class="bdg bgo">FY25 vs FY26</span></div>
+      <div class="leg">
+        <span><span class="ld" style="background:#e9a84c"></span>FY25</span>
+        <span><span class="ld" style="background:#4ade80"></span>FY26</span>
+      </div>
+      <div class="cw" style="height:240px;"><canvas id="yoyMain"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">Margin trend — FY23 to FY27 target</div>
+      <div class="cw" style="height:170px;"><canvas id="marginTrend"></canvas></div>
+      <div class="div"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:var(--bg3);border-radius:7px;padding:10px 12px;border:1px solid var(--bdr);">
+          <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">GP% FY26</div>
+          <div style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--green);">18.25%</div>
+          <div style="font-size:10px;color:var(--t3);">vs 18.0% FY25</div>
+        </div>
+        <div style="background:var(--bg3);border-radius:7px;padding:10px 12px;border:1px solid var(--bdr);">
+          <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;">NP% FY26</div>
+          <div style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--amber);">1.08%</div>
+          <div style="font-size:10px;color:var(--t3);">vs 2.27% FY25</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ch">Cost structure — % of sales FY25 vs FY26</div>
+      <div class="leg">
+        <span><span class="ld" style="background:#e9a84c"></span>FY25</span>
+        <span><span class="ld" style="background:#4ade80"></span>FY26</span>
+      </div>
+      <div class="cw" style="height:200px;"><canvas id="costPct"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">Working capital health</div>
+      <div style="margin-top:4px;">
+        <div class="pi"><div class="pr"><span class="pl">Debtor Days (~57 days)</span><span class="pv">Target: 30 days</span></div><div class="pb"><div class="pf" style="width:100%;background:var(--red);"></div></div></div>
+        <div class="pi"><div class="pr"><span class="pl">Stock Level (0.86 months)</span><span class="pv">Target: &lt;1 month ✓</span></div><div class="pb"><div class="pf" style="width:54%;background:var(--green);"></div></div></div>
+        <div class="pi"><div class="pr"><span class="pl">Creditor/Debtor ratio (0.26×)</span><span class="pv">Target: &gt;0.5×</span></div><div class="pb"><div class="pf" style="width:26%;background:var(--amber);"></div></div></div>
+        <div class="pi"><div class="pr"><span class="pl">Bank Interest (₹35.4L)</span><span class="pv">↓ from ₹41.6L FY25</span></div><div class="pb"><div class="pf" style="width:42%;background:var(--blue);"></div></div></div>
+        <div class="pi"><div class="pr"><span class="pl">Net Profit Margin (1.08%)</span><span class="pv">Target: 3.0%+</span></div><div class="pb"><div class="pf" style="width:28%;background:var(--amber);"></div></div></div>
+      </div>
+      <div class="div"></div>
+      <div class="ins" style="margin-bottom:0;">
+        <div class="ins-t">FY26 in one sentence</div>
+        <div class="ins-b">A year of <strong>operational discipline</strong> — purchases ↓₹4Cr, inventory halved, bank interest down. But higher staff (+₹90L) and admin (+₹40L) costs compressed NP to 1.08% — these are now fully embedded in the P&amp;L. FY27 must be the margin recovery year.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE 2: P&L ══════════════════════ -->
+<div id="page-pl" class="page">
+  <div class="ph"><h1>Profit & Loss — Deep Dive</h1><p>Schedule-wise breakdown · FY24-25 vs FY25-26</p></div>
+
+  <div class="card" style="margin-bottom:14px;">
+    <div class="ch">Income Statement (₹ Lakhs) <span class="bdg bgo">Full schedule detail</span></div>
+    <table class="tbl">
+      <thead><tr><th>Particulars</th><th>FY 2024–25</th><th>FY 2025–26</th><th>Change ₹L</th><th>Change %</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:600;">Sales (A01)</td><td>11,292.8</td><td>11,685.9</td><td class="up">+393.1</td><td class="up">+3.5%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Opening Stock</td><td>(1,492.4)</td><td>(1,509.6)</td><td>—</td><td></td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Add: Closing Stock</td><td>1,509.6</td><td>833.9</td><td class="up">↓675.7</td><td class="up">↓44.8%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Purchases (C01)</td><td>(8,378.9)</td><td>(7,969.9)</td><td class="up">+409.0</td><td class="up">↓4.9%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Staff Expenses (C05)</td><td>(895.9)</td><td>(907.0)</td><td class="dn">−11.1</td><td class="dn">↑1.24%</td></tr>
+        <tr class="tr"><td>Gross Profit</td><td>2,035.1</td><td>2,133.1</td><td class="up">+98.0</td><td class="up">+4.8%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">GP %</td><td>18.0%</td><td>18.25%</td><td></td><td class="up">+23 bps</td></tr>
+        <tr style="height:4px;"><td colspan="5"></td></tr>
+        <tr><td>Other Income (A02)</td><td>17.5</td><td>9.8</td><td class="dn">−7.7</td><td class="dn">−44.1%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Interest & Bank (C06)</td><td>(41.6)</td><td>(35.4)</td><td class="up">+6.2</td><td class="up">↓14.8%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Admin & Selling (C07)</td><td>(1,962.7)</td><td>(1,929.4)</td><td class="up"></td><td class="up">+33.3</td><td class="up">↓1.7%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Partners Salary (C09)</td><td>(9.0)</td><td>(16.3)</td><td class="dn">−7.3</td><td class="dn">↑81.5%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Depreciation (C13)</td><td>(34.3)</td><td>(35.0)</td><td class="dn">−0.7</td><td class="dn">↑2.2%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">Less: Audit Fees (C14)</td><td>(8.5)</td><td>(8.5)</td><td>—</td><td>0%</td></tr>
+        <tr class="tr"><td>Net Profit</td><td>256.4</td><td>125.9</td><td class="dn">−130.5</td><td class="dn">−50.9%</td></tr>
+        <tr><td style="color:var(--t3);padding-left:16px;">NP %</td><td>2.27%</td><td>1.08%</td><td></td><td class="dn">−119 bps</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ch">Top C07 cost lines — Admin & Selling (₹ Lakhs) <span class="bdg ba">Optimisation targets</span></div>
+      <table class="tbl">
+        <thead><tr><th>Expense</th><th>FY26 ₹L</th><th>% Sales</th><th>FY27 Action</th></tr></thead>
+        <tbody>
+          <tr class="bad"><td>Labour Contract</td><td>450.6</td><td class="dn">0.39%</td><td>Renegotiate −15%</td></tr>
+          <tr class="warn"><td>Special Discount</td><td>293.7</td><td class="wa">0.25%</td><td>Convert to scheme</td></tr>
+          <tr class="warn"><td>Sales Promotion</td><td>280.9</td><td class="wa">0.24%</td><td>Track ROI −20%</td></tr>
+          <tr><td>Travelling</td><td>151.3</td><td>0.13%</td><td>Digital-first −15%</td></tr>
+          <tr class="hl"><td>Advertisement</td><td>139.8</td><td class="up">0.12%</td><td>Increase to 0.15%</td></tr>
+          <tr><td>Van Maintenance</td><td>91.3</td><td>0.08%</td><td>Review fleet</td></tr>
+          <tr><td>Lorry Freight</td><td>93.4</td><td>0.08%</td><td>Bulk negotiate</td></tr>
+          <tr><td>Royalty</td><td>37.7</td><td>0.03%</td><td>Review terms</td></tr>
+          <tr><td>Rent (incl. RCM)</td><td>30.7</td><td>0.03%</td><td>Fixed</td></tr>
+          <tr class="tr"><td>Total C07</td><td>1,939.1</td><td>16.51%</td><td>Target: 15.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ch">Cost waterfall — full spend composition (₹ Crores)</div>
+      <div class="fb"><div class="fn">Purchases (C01)</div><div class="fb-bar" style="width:79.7%;background:#3b82f6;">₹79.70 Cr</div><div class="fa">69.2%</div></div>
+      <div class="fb"><div class="fn">Admin & Selling (C07)</div><div class="fb-bar" style="width:19.4%;background:#f59e0b;">₹19.29 Cr</div><div class="fa">16.51%</div></div>
+      <div class="fb"><div class="fn">Staff (C05)</div><div class="fb-bar" style="width:9.07%;background:#2dd4bf;">₹9.07 Cr</div><div class="fa">7.76%</div></div>
+      <div class="fb"><div class="fn">Depreciation (C13)</div><div class="fb-bar" style="width:0.65%;background:#a78bfa;min-width:40px;">₹35L</div><div class="fa">0.30%</div></div>
+      <div class="fb"><div class="fn">Interest (C06)</div><div class="fb-bar" style="width:0.35%;background:#f87171;min-width:40px;">₹35L</div><div class="fa">0.31%</div></div>
+      <div class="fb"><div class="fn">Partners + Audit</div><div class="fb-bar" style="width:0.24%;background:#6b7280;min-width:35px;">₹25L</div><div class="fa">0.21%</div></div>
+      <div class="div"></div>
+      <div class="ch" style="margin-bottom:8px;">Balance sheet health indicators</div>
+      <table class="tbl">
+        <thead><tr><th>Item</th><th>Value</th><th>Signal</th></tr></thead>
+        <tbody>
+          <tr><td>Sundry Debtors</td><td>₹18.2 Cr</td><td class="dn">~57 days · HIGH RISK</td></tr>
+          <tr><td>Secured Loans (OCC+Car)</td><td>₹4.41 Cr</td><td class="up">↓ Improving leverage</td></tr>
+          <tr><td>Fixed Assets (net)</td><td>₹2.52 Cr</td><td>Asset-light model</td></tr>
+          <tr><td>Sundry Creditors</td><td>₹4.76 Cr</td><td class="wa">Low vs debtors</td></tr>
+          <tr><td>Cash & Bank</td><td>₹38.5 L</td><td class="wa">Thin cash buffer</td></tr>
+          <tr><td>GST Net Payable</td><td>₹94.2 L</td><td>J08+J09 combined</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE 3: PRODUCTS & CHANNELS ══════════════════════ -->
+<div id="page-products" class="page">
+  <div class="ph"><h1>Products & Sales Channels</h1><p>Category performance · Channel mix · Online strategy · Top accounts</p></div>
+
+  <div class="krow k4">
+    <div class="kc"><div class="acc" style="background:var(--amber)"></div>
+      <div class="kl">Top Category — Grinder</div><div class="kv">₹19.0 Cr</div>
+      <div class="ks">16.3% of revenue · stable +3%</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--green)"></div>
+      <div class="kl">Fastest Growth — Nutri Blender</div><div class="kv">+250%</div>
+      <div class="ks"><span class="up">₹77L → ₹372L</span> · Rocket product</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--red)"></div>
+      <div class="kl">Declining — Kitchen Machine</div><div class="kv">−16.51%</div>
+      <div class="ks"><span class="dn">₹10.4Cr → ₹8.6Cr</span> · Needs strategy</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--teal)"></div>
+      <div class="kl">Online Channel (Dreamour)</div><div class="kv">~8%</div>
+      <div class="ks">₹9.3 Cr · Target ₹20 Cr FY27</div>
+    </div>
+  </div>
+
+  <div class="g65">
+    <div class="card">
+      <div class="ch">Product category revenue — FY26 (₹ Crores) <span class="bdg bgo">A01 Schedule</span></div>
+      <div class="cw" style="height:310px;"><canvas id="catRevBar"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">Product strategic classification</div>
+      <table class="tbl">
+        <thead><tr><th>Product</th><th>FY26 ₹Cr</th><th>vs FY25</th><th>Class</th></tr></thead>
+        <tbody>
+          <tr><td>Grinder (GR)</td><td>19.0</td><td class="up">+3.0%</td><td style="color:var(--gold);">⭐ Cash Cow</td></tr>
+          <tr><td>ALU PC (PC)</td><td>17.2</td><td class="up">+5.7%</td><td style="color:var(--gold);">⭐ Cash Cow</td></tr>
+          <tr><td>SS PC (SPC)</td><td>13.5</td><td class="up">+18.7%</td><td style="color:var(--teal);">📈 Star</td></tr>
+          <tr><td>Non-stick (NS)</td><td>12.8</td><td class="dn">−3.7%</td><td style="color:var(--amber);">⚠ Mature</td></tr>
+          <tr><td>LPG Stove (LPG)</td><td>9.5</td><td class="up">+17.0%</td><td style="color:var(--teal);">📈 Star</td></tr>
+          <tr><td>Kitchen Machine (KM)</td><td>8.6</td><td class="dn">−16.51%</td><td style="color:var(--red);">⬇ Declining</td></tr>
+          <tr><td>Nutri Blender (NB)</td><td>3.7</td><td class="up">+250%</td><td style="color:var(--green);">🚀 Rocket</td></tr>
+          <tr><td>Triply PC (TPC)</td><td>2.7</td><td class="up">+124%</td><td style="color:var(--green);">🚀 Rocket</td></tr>
+          <tr><td>Electric Kettle (KET)</td><td>2.4</td><td class="up">+31%</td><td style="color:var(--teal);">📈 Star</td></tr>
+          <tr><td>Induction (IC)</td><td>1.9</td><td class="up">+85%</td><td style="color:var(--green);">🚀 Rocket</td></tr>
+          <tr><td>HAC Cooker (HAC)</td><td>2.2</td><td class="dn">−13.2%</td><td style="color:var(--red);">⬇ Declining</td></tr>
+          <tr><td>ALU Utensils (PAL)</td><td>0.6</td><td class="dn">−25.8%</td><td style="color:var(--red);">⬇ Declining</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ch">Channel mix — FY26 <span class="bdg bt">Estimated split</span></div>
+      <div class="cw" style="height:170px;"><canvas id="chanDonut"></canvas></div>
+      <div class="leg" style="margin-top:8px;">
+        <span><span class="ld" style="background:#1A2E42"></span>Trade/Retail ~68%</span>
+        <span><span class="ld" style="background:#e9a84c"></span>Govt Canteen ~17%</span>
+        <span><span class="ld" style="background:#4ade80"></span>Online ~8%</span>
+        <span><span class="ld" style="background:#f87171"></span>Related ~7%</span>
+      </div>
+      <div class="div"></div>
+      <div class="ch" style="margin-bottom:8px;">Top debtors — FY26</div>
+      <table class="tbl">
+        <thead><tr><th>Customer</th><th>Balance</th><th>Channel</th></tr></thead>
+        <tbody>
+          <tr><td>Vasanth & Co</td><td>₹1.98 Cr</td><td><span class="cp" style="background:#1A2E42;color:#e9a84c;">Trade</span></td></tr>
+          <tr><td>AL Shah Enterprises</td><td>₹1.43 Cr</td><td><span class="cp" style="background:#1A2E42;color:#e9a84c;">Trade</span></td></tr>
+          <tr><td>Dreamour (online)</td><td>₹1.50 Cr</td><td><span class="cp" style="background:#1B7A4A;color:#fff;">Online</span></td></tr>
+          <tr><td>S.Sivanesan & Co</td><td>₹1.13 Cr</td><td><span class="cp" style="background:#9B6A00;color:#fff;">Related</span></td></tr>
+          <tr><td>AGS Rathna Stores</td><td>₹0.76 Cr</td><td><span class="cp" style="background:#1A2E42;color:#e9a84c;">Trade</span></td></tr>
+          <tr><td>Sathya Agencies</td><td>₹0.93 Cr</td><td><span class="cp" style="background:#1A2E42;color:#e9a84c;">Trade</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ch">Product growth — FY25 to FY26 % change <span class="bdg bg">Sorted by growth</span></div>
+      <div class="cw" style="height:300px;"><canvas id="prodGrowth"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch">Institutional & Government Channel — detail <span class="bdg bt">~17% of revenue · ₹19.8 Cr</span></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:11px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:11px;border:1px solid var(--bdr);">
+        <div style="font-weight:600;color:var(--t1);margin-bottom:3px;">TN Police Master Canteen</div>
+        <div style="color:var(--t3);">60+ branch accounts. Largest institutional buyer group in Tamil Nadu.</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:11px;border:1px solid var(--bdr);">
+        <div style="font-weight:600;color:var(--t1);margin-bottom:3px;">KPKB & Kerala Subsidiaries</div>
+        <div style="color:var(--t3);">Kendriya Police Kalyan Bhandar — Kerala. Steady repeat orders.</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:11px;border:1px solid var(--bdr);">
+        <div style="font-weight:600;color:var(--t1);margin-bottom:3px;">CRPF / CPC Canteens</div>
+        <div style="color:var(--t3);">Central paramilitary canteens — pan-India. Growing order volumes.</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:11px;border:1px solid var(--bdr);">
+        <div style="font-weight:600;color:var(--gold);margin-bottom:3px;">GEM Portal — Untapped</div>
+        <div style="color:var(--t3);">Not yet registered. Empanelment can unlock ₹5–10 Cr direct procurement at better margins.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE 4: STATE INTELLIGENCE ══════════════════════ -->
+<div id="page-states" class="page">
+  <div class="ph"><h1>State Sales Intelligence</h1><p>4-year data · 25 states · Click a state for product drill-down</p></div>
+
+  <div class="krow k5">
+    <div class="kc"><div class="acc" style="background:var(--gold)"></div>
+      <div class="kl">Tamil Nadu FY26</div><div class="kv">₹92.9 Cr</div>
+      <div class="ks"><span class="up">+5.5%</span> · 79.5% of total</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--red)"></div>
+      <div class="kl">Kerala — Biggest Risk</div><div class="kv">↓23.8%</div>
+      <div class="ks"><span class="dn">₹9.2Cr → ₹7.0Cr</span> · Investigate</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--green)"></div>
+      <div class="kl">Maharashtra Growing</div><div class="kv">+16.51%</div>
+      <div class="ks"><span class="up">₹3.75Cr → ₹4.38Cr</span> · Scale up</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--teal)"></div>
+      <div class="kl">Telangana Accelerating</div><div class="kv">+33.3%</div>
+      <div class="ks"><span class="up">₹1.76Cr → ₹2.17Cr</span> · Invest</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--purple)"></div>
+      <div class="kl">Assam — New Market</div><div class="kv">₹62 L</div>
+      <div class="ks"><span class="up">₹0 → ₹62L</span> · FY26 debut</div>
+    </div>
+  </div>
+
+  <div class="g65">
+    <div class="card">
+      <div class="ch">State revenue — FY23 to FY26 (₹ Crores) <span class="bdg bgo">Top 8</span></div>
+      <div class="leg">
+        <span><span class="ld" style="background:#e9a84c"></span>FY23</span>
+        <span><span class="ld" style="background:#60a5fa"></span>FY24</span>
+        <span><span class="ld" style="background:#2dd4bf"></span>FY25</span>
+        <span><span class="ld" style="background:#4ade80"></span>FY26</span>
+      </div>
+      <div class="cw" style="height:260px;"><canvas id="stateYoY"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">State trend lines (₹ Crores)</div>
+      <div class="cw" style="height:200px;"><canvas id="stateTrend"></canvas></div>
+      <div class="div"></div>
+      <table class="tbl" style="font-size:10px;">
+        <thead><tr><th>State</th><th>FY25</th><th>FY26</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Pondicherry</td><td>₹1,414L</td><td>₹2,119L</td><td class="up">↑49.9%</td></tr>
+          <tr class="hl"><td>Karnataka</td><td>₹2,360L</td><td>₹2,829L</td><td class="up">↑19.9%</td></tr>
+          <tr class="warn"><td>Kerala</td><td>₹9,238L</td><td>₹7,035L</td><td class="dn">↓23.8%</td></tr>
+          <tr class="warn"><td>Andhra Pradesh</td><td>₹3,661L</td><td>₹3,031L</td><td class="dn">↓17.2%</td></tr>
+          <tr class="bad"><td>Puducherry</td><td>₹541L</td><td>₹246L</td><td class="dn">↓54.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;" id="stateBubbles2"></div>
+
+  <div class="g65" id="stateDetailSection" style="display:none;">
+    <div class="card">
+      <div class="ch" id="stateDetailTitle2">State product breakdown</div>
+      <div class="leg">
+        <span><span class="ld" style="background:#e9a84c"></span>FY23</span>
+        <span><span class="ld" style="background:#60a5fa"></span>FY24</span>
+        <span><span class="ld" style="background:#2dd4bf"></span>FY25</span>
+        <span><span class="ld" style="background:#4ade80"></span>FY26</span>
+      </div>
+      <div class="cw" style="height:280px;"><canvas id="stateProductChart2"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">State summary</div>
+      <div id="stateStats2"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch">State × Product heatmap — FY26 (₹ Lakhs) <span class="bdg ba">Darker = higher revenue · — = zero</span></div>
+    <div id="heatmapContainer" style="overflow-x:auto;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE 5: RISKS ══════════════════════ -->
+<div id="page-risks" class="page">
+  <div class="ph"><h1>Risk Register & Watch List</h1><p>Identified risks requiring management attention before and during FY27</p></div>
+
+  <div class="g2">
+    <div>
+      <div style="font-family:'Crimson Pro',serif;font-size:15px;font-weight:600;color:var(--red);margin-bottom:10px;">High Priority Risks</div>
+      <div class="ri">
+        <div><div class="rb rbh">HIGH</div></div>
+        <div><div class="rt">Debtor overexposure — ₹18.2 Cr at ~57 days</div><div class="rs">Net profit is only ₹1.26 Cr. Top 5 debtors account for ₹7–8 Cr. A single default from Vasanth & Co, AL Shah, or related-party accounts could eliminate the entire year's profitability. Credit policy reform is non-negotiable in Q1 FY27.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbh">HIGH</div></div>
+        <div><div class="rt">Kerala revenue collapse — ₹9.2 Cr → ₹7.0 Cr (−23.8%)</div><div class="rs">Second-largest state dropped sharply. KM −44%, KET −47%, LPG −50%, NCP −75%. Likely distributor/pricing breakdown, not market saturation. Every ₹1 Cr recovered from Kerala goes directly to bottom line.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbh">HIGH</div></div>
+        <div><div class="rt">Net profit margin at 1.08% — paper-thin buffer</div><div class="rs">Any cost overrun, bad debt, or revenue shortfall could push FY27 into a loss year. Structural margin improvement through mix, pricing, and cost recovery is the core management objective.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbh">HIGH</div></div>
+        <div><div class="rt">Product concentration — Pressure Cooker ≈ 30% of revenue</div><div class="rs">Any supply disruption, GST rate revision, or intensified competition from Hawkins/Prestige directly threatens ₹34+ Cr. Diversification into Wet Grinder, Nutri Blender, and electrical is urgent.</div></div>
+      </div>
+
+      <div style="font-family:'Crimson Pro',serif;font-size:15px;font-weight:600;color:var(--amber);margin:14px 0 10px;">Medium Priority Risks</div>
+      <div class="ri">
+        <div><div class="rb rbm">MEDIUM</div></div>
+        <div><div class="rt">Labour Contract — ₹4.51 Cr, largest single C07 line</div><div class="rs">Contract details and vendor breakdown need review. A 10% renegotiation saves ₹45L directly to bottom line. Compliance documentation essential for audit readiness.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbm">MEDIUM</div></div>
+        <div><div class="rt">Special discounts ₹2.94 Cr — unstructured margin erosion</div><div class="rs">Converting to performance-linked trade schemes tied to volume and payment discipline will protect margin while sustaining dealer loyalty. Potential saving: ₹100–120L.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbm">MEDIUM</div></div>
+        <div><div class="rt">Related-party exposure — ₹3.6 Cr (Dreamour, Ketana, Sivanesan)</div><div class="rs">Pricing, settlement terms, and documentation should be formalised for GST and Income Tax readiness. Settlement within agreed credit timelines is critical for working capital.</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family:'Crimson Pro',serif;font-size:15px;font-weight:600;color:var(--green);margin-bottom:10px;">Watch List</div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">Kitchen Machine category declining — ₹10.4Cr → ₹8.6Cr (−16.51%)</div><div class="rs">Largest revenue decline in absolute terms. Consistent across TN (−16.51%), Kerala (−44%), and other states. Need to assess if it's a product lifecycle issue or a competitive pricing gap.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">Partners salary jump — ₹9L → ₹16.3L (+81%)</div><div class="rs">Rate of increase should be benchmarked against profitability and formalised in the partnership deed to ensure Income Tax compliance.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">Other income dropped ₹17.5L → ₹9.8L (−44%)</div><div class="rs">Service charges, courier income, and rental income all declined. Recovering ₹5–7L in FY27 directly improves the bottom line without operational effort.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">IT advance + appeal deposit — ₹27.7L locked</div><div class="rs">₹19L advance tax + ₹8.7L IT appeal (AY 2014–15). Resolution timeline should be tracked as a contingent liability in management accounts.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">Depreciation — ₹34.3L → ₹35.0L (+₹0.7L)</div><div class="rs">Marginal increase of ₹0.7L. Fixed asset register should be reviewed and depreciation schedule validated for FY27 projections.</div></div>
+      </div>
+      <div class="ri">
+        <div><div class="rb rbw">WATCH</div></div>
+        <div><div class="rt">Andhra Pradesh declining — ₹3.66 Cr → ₹3.03 Cr (−17.2%)</div><div class="rs">Previously Premier's fastest-growing state, now declining. Grinder and Kitchen Machine both dropped sharply. Requires distributor-level review and product-specific recovery plan.</div></div>
+      </div>
+
+      <div class="card" style="margin-top:14px;background:rgba(13,27,42,0.6);border:1px solid rgba(233,168,76,0.2);">
+        <div class="ch" style="color:var(--gold);">Management Summary</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.65);line-height:1.85;">
+          FY26 delivered strong <strong style="color:var(--gold2);">operational discipline</strong> — purchases cut ₹4 Cr, inventory halved, bank interest reduced, gross margins improved. The business is lean and well-positioned. FY27 must convert this foundation into <strong style="color:var(--gold2);">topline acceleration and margin recovery</strong> led by debtor collection, Kerala recovery, product mix improvement, and online channel scale.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE 6: STRATEGY ══════════════════════ -->
+<div id="page-strategy" class="page">
+  <div class="ph"><h1>FY 2026–27 Strategic Plan</h1><p>Six pillars · Territory targets · Product roadmap · 12-month milestones</p></div>
+
+  <div class="krow k4">
+    <div class="kc"><div class="acc" style="background:var(--gold)"></div>
+      <div class="kl">Revenue Target</div><div class="kv">₹135–140 Cr</div>
+      <div class="ks"><span class="up">↑15–20%</span> from ₹116.9 Cr base</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--green)"></div>
+      <div class="kl">GP% Target</div><div class="kv">20.5–21%</div>
+      <div class="ks"><span class="up">+150–200 bps</span> via mix & pricing</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--amber)"></div>
+      <div class="kl">Net Profit Target</div><div class="kv">₹4–5 Cr</div>
+      <div class="ks">NP% 3.0–3.5% from 1.08% base</div>
+    </div>
+    <div class="kc"><div class="acc" style="background:var(--teal)"></div>
+      <div class="kl">Rocket Products Target</div><div class="kv">₹12 Cr</div>
+      <div class="ks">NB+TPC+IC+KET combined (was ₹8.7Cr)</div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="sc"><div class="sn">01</div><div class="st">Debtor Discipline — Q1 Priority</div><div class="sb">Enforce 30-day credit for all new accounts from April 2026. Introduce 1–1.5% early-payment incentive. Assign a senior manager as collections owner. Target debtor book below ₹12 Cr by Q2 — freeing ₹6 Cr in working capital.</div><div class="sk"><span>Q1 FY27</span><span>₹12Cr target</span><span>₹6Cr freed</span></div></div>
+    <div class="sc"><div class="sn">02</div><div class="st">Kerala Recovery Plan</div><div class="sb">Audit top 3 distributors on pricing and terms. Re-launch NCP (was ₹174L, now ₹28L). Push Nutri Blender which has growing early traction. SS Pressure Cooker grew +24.6% — double down. Target ₹8.5 Cr from Kerala in FY27.</div><div class="sk"><span>₹8.5Cr target</span><span>NCP relaunch</span><span>Distributor audit</span></div></div>
+    <div class="sc"><div class="sn">03</div><div class="st">Product Mix — Rocket Products</div><div class="sb">Nutri Blender +250% already — roll out to MH, KA, TS, WB, GJ via scheme + demo. Triply PC to AP, TS, KL. Induction Cooker to MH, KA. Electric Kettle to all states. Target ₹12 Cr combined from 4 rockets vs ₹8.7 Cr FY26.</div><div class="sk"><span>NB ₹6Cr</span><span>TPC ₹3Cr</span><span>IC+KET ₹3Cr</span></div></div>
+    <div class="sc"><div class="sn">04</div><div class="st">Online Scale via Dreamour</div><div class="sb">Online at ~8% (₹9.3 Cr). Target ₹18–20 Cr by FY27 end. A+ content, sponsored ads, review management for top SKUs. Distinct online SKU architecture to protect trade pricing. Amazon first, Flipkart second, Meesho for value segment.</div><div class="sk"><span>₹20Cr online</span><span>Amazon first</span><span>Separate SKUs</span></div></div>
+    <div class="sc"><div class="sn">05</div><div class="st">Geographic Expansion</div><div class="sb">Maharashtra and Karnataka are scale-up states. Telangana and Pondicherry are growing fast. New: appoint anchor stockist in Odisha, scale Assam. Delhi via GEM channel. Target 3 new productive states generating ₹3–4 Cr combined by FY27 year-end.</div><div class="sk"><span>MH ₹5.5Cr</span><span>KA ₹3.8Cr</span><span>TS ₹3Cr</span></div></div>
+    <div class="sc"><div class="sn">06</div><div class="st">Cost Optimisation</div><div class="sb">Labour Contract −15% = ₹67L. Special Discount → scheme = ₹120L saved. Sales Promotion ROI-gated = ₹55L saved. Increase advertisement by ₹40L for growth. Net saving: ₹1 Cr+ to bottom line without touching revenue.</div><div class="sk"><span>₹1Cr+ saving</span><span>C07 target 15%</span><span>Advert ↑</span></div></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ch">FY27 state revenue targets (₹ Lakhs) <span class="bdg bgo">FY26 vs Target</span></div>
+      <div class="cw" style="height:280px;"><canvas id="stateTgt"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="ch">12-Month priority roadmap</div>
+      <table class="tbl">
+        <thead><tr><th>Quarter</th><th>Key Actions</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--green);">Q1 Apr–Jun</td><td>Debtor drive · GEM registration · Kerala distributor audit · AP stockist review</td><td>Debtors below ₹14 Cr</td></tr>
+          <tr><td style="font-weight:600;color:var(--teal);">Q2 Jul–Sep</td><td>Online SKU launch · Wet Grinder push · Assam/Odisha stockist · Rocket product roll-out to MH+KA</td><td>Online ₹4Cr/qtr run-rate</td></tr>
+          <tr><td style="font-weight:600;color:var(--amber);">Q3 Oct–Dec</td><td>Festival season plan · Blender/IC campaign · Trade scheme launch · Kerala NCP recovery</td><td>₹38–40 Cr revenue qtr</td></tr>
+          <tr><td style="font-weight:600;color:var(--gold);">Q4 Jan–Mar</td><td>Year-end stock clearance · FY28 budget · New product evaluation · Cost renegotiations</td><td>Full-year NP% above 3%</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding:11px;background:var(--gpale);border-radius:8px;font-size:11px;color:var(--t2);line-height:1.7;">
+        <strong style="color:var(--gold);">Next unlock:</strong> Monthly actual sales data by state and category will be added to model seasonality curves, identify early-warning signals, and build a territory-level target tracker for managing partner review.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONSTANTS ──
+const GLD='#e9a84c',GLD2='#f5c97a',TEAL='#2dd4bf',RED='#f87171',
+      GRN='#4ade80',BLU='#60a5fa',AMB='#fbbf24',PUR='#a78bfa',
+      PNK='#f472b6',GRY='#6b7280';
+const GR='rgba(255,255,255,0.05)',TC='#4e566e';
+const bo={responsive:true,maintainAspectRatio:false};
+
+function show(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ntb').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+// ── STATE DATA ──
+const stateData={
+  'Tamil Nadu':    [92.03,97.54,87.94,92.88],
+  'Kerala':        [7.99,10.86,9.24,7.04],
+  'Maharashtra':   [3.70,4.52,3.75,4.38],
+  'Andhra Pradesh':[2.51,1.56,3.66,3.03],
+  'Karnataka':     [3.44,3.46,2.36,2.83],
+  'Pondicherry':   [0.15,2.46,1.41,2.12],
+  'Telangana':     [1.45,2.89,1.76,2.17],
+  'Puducherry':    [1.11,0.46,0.54,0.25],
+  'West Bengal':   [0.15,0.34,0.64,0.76],
+  'Gujarat':       [0.72,0.22,0.37,0.43],
+  'Assam':         [0,0,0,0.62],
+  'Odisha':        [0.02,0.08,0,0.04],
+  'Rajasthan':     [0.04,0.01,0.03,0.05],
+};
+
+const stateProducts={
+  'Tamil Nadu':{'Grinder':[1858,2134,1579,1625],'ALU PC':[1562,1500,1384,1540],'Non-stick':[1700,1363,1074,1035],'SS PC':[595,583,681,843],'LPG Stove':[535,606,628,745],'Kitchen Machine':[808,864,874,727],'Nutri Blender':[0,0,77,272],'Triply PC':[0,61,121,204],'SS Utensils':[365,341,292,489],'Induction':[95,143,82,162],'Electric Kettle':[129,278,127,166]},
+  'Kerala':{'Non-stick Combo':[811,1743,1138,285],'Kitchen Machine':[1079,758,881,494],'LPG Stove':[827,859,955,480],'SS PC':[719,1401,1243,1549],'ALU PC':[535,782,589,641],'Grinder':[351,422,500,260],'Electric Kettle':[274,517,441,233],'HAT Non-stick':[157,714,419,219],'Nutri Blender':[0,0,0.2,112],'Roti Maker':[117,145,125,160],'Spares':[103,106,129,169]},
+  'Maharashtra':{'Grinder':[930,1169,738,1024],'SS PC':[747,1216,918,1050],'ALU PC':[457,283,201,129],'Kitchen Machine':[238,213,266,167],'LPG Stove':[90,199,239,345],'Triply PC':[0,144,59,348],'Nutri Blender':[0,0,62,86],'Induction':[1,5,3,80],'Electric Kettle':[29,68,64,79],'SS Utensils':[150,197,156,226],'Non-stick':[311,203,233,211]},
+  'Karnataka':{'Grinder':[834,1045,591,649],'NS Non-stick':[318,452,315,319],'SS PC':[168,336,344,407],'LPG Stove':[59,182,127,384],'Kitchen Machine':[92,230,211,133],'ALU PC':[166,224,110,135],'HAC Cooker':[106,96,72,28],'SS Utensils':[1395,218,151,150],'Nutri Blender':[0,0,27,86],'Triply PC':[0,20,16,120],'Electric Kettle':[5,172,11,28]},
+  'Andhra Pradesh':{'ERC Cooker':[785,229,296,266],'Grinder':[354,245,616,250],'Kitchen Machine':[215,156,436,219],'NS Non-stick':[384,179,250,141],'SS PC':[76,158,804,989],'LPG Stove':[17,34,180,442],'ALU PC':[212,82,206,112],'SS Utensils':[125,154,234,139],'Nutri Blender':[0,0,34,87],'Triply PC':[0,6,160,44]},
+  'Telangana':{'SS PC':[234,592,655,738],'Grinder':[285,472,240,194],'ALU PC':[110,147,157,191],'NS Non-stick':[180,222,180,211],'LPG Stove':[0,73,42,56],'Nutri Blender':[0,0,15,171],'Electric Kettle':[1,11,7,162],'Triply PC':[0,13,14,109],'SS Utensils':[83,168,94,126],'Kitchen Machine':[51,142,65,25]},
+  'Pondicherry':{'Grinder':[61,696,515,549],'SS Utensils':[0,158,60,192],'LPG Stove':[21,211,97,180],'ALU PC':[11,279,100,165],'Kitchen Machine':[45,267,208,167],'Nutri Blender':[0,0,43,210],'SS PC':[0,101,52,129],'Electric Kettle':[0,55,12,104],'Non-stick':[10,214,181,153]},
+  'West Bengal':{'One Touch Mixi':[64,102,304,182],'Kitchen Machine':[28,108,229,134],'Nutri Blender':[0,0,43,119],'Electric Kettle':[19,26,29,93],'NKM Nethraa KM':[0,0,0,54],'SS PC':[0.2,2,0,125],'ERC Cooker':[1,5,31,10],'NS Non-stick':[27,11,0,3]},
+  'Gujarat':{'SS PC':[349,81,55,99],'Grinder':[25,31,107,59],'Kitchen Machine':[54,12,14,20],'OTM One Touch Mixi':[35,16,33,47],'LPG Stove':[17,3,8,36],'Triply PC':[0,3,4,33],'NS Non-stick':[68,20,80,47],'ALU PC':[47,13,8,16]},
+};
+
+// ── PAGE 1: OVERVIEW ──
+new Chart(document.getElementById('yoyMain'),{type:'bar',data:{
+  labels:['Sales','Gross Profit','Admin & Selling','Staff Cost','Net Profit'],
+  datasets:[
+    {label:'FY25',data:[112.93,20.35,19.63,8.96,2.56],backgroundColor:GLD,borderRadius:4},
+    {label:'FY26',data:[116.86,21.33,19.29,9.07,1.26],backgroundColor:GRN,borderRadius:4}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:10},color:TC,boxWidth:10}}},
+  scales:{x:{ticks:{font:{size:10},color:TC},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'Cr'},grid:{color:GR}}}}
+});
+
+new Chart(document.getElementById('marginTrend'),{type:'line',data:{
+  labels:['FY23','FY24','FY25','FY26','FY27 T'],
+  datasets:[
+    {label:'GP%',data:[17.5,18.2,18.0,18.25,20.75],borderColor:GRN,backgroundColor:'rgba(74,222,128,0.06)',tension:0.3,fill:true,pointRadius:4,pointBackgroundColor:GRN},
+    {label:'NP%',data:[2.1,2.4,2.27,1.08,3.25],borderColor:AMB,backgroundColor:'rgba(251,191,36,0.06)',tension:0.3,fill:true,pointRadius:4,pointBackgroundColor:AMB}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:10},color:TC,boxWidth:10}}},
+  scales:{x:{ticks:{font:{size:9},color:TC},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>v+'%'},grid:{color:GR},min:0,max:24}}}
+});
+
+new Chart(document.getElementById('costPct'),{type:'bar',data:{
+  labels:['Purchases','Staff','Admin/Sell','Interest','Depreciation'],
+  datasets:[
+    {label:'FY25',data:[74.2,7.93,17.38,0.37,0.30],backgroundColor:GLD,borderRadius:3},
+    {label:'FY26',data:[68.1,7.76,16.51,0.30,0.30],backgroundColor:GRN,borderRadius:3}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:10},color:TC,boxWidth:10}}},
+  scales:{x:{ticks:{font:{size:9},color:TC},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>v+'%'},grid:{color:GR}}}}
+});
+
+// ── PAGE 3: PRODUCTS ──
+new Chart(document.getElementById('catRevBar'),{type:'bar',data:{
+  labels:['Grinder','ALU PC','SS PC','Non-stick','LPG Stove','Kitchen M.','Nutri Blender','Triply PC','SS Utensils','KET','HAC','Induction','Scrap','ROT','Tower Fan'],
+  datasets:[{data:[19.0,17.2,13.5,12.8,9.5,8.6,3.7,2.7,5.8,2.4,2.2,1.9,3.5,1.0,1.6],
+    backgroundColor:[AMB,BLU,TEAL,GLD,GRN,PUR,GRN,TEAL,GLD,TEAL,RED,GRN,GRY,GRY,GRY],borderRadius:4}]},
+  options:{indexAxis:'y',...bo,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'Cr'},grid:{color:GR}},y:{ticks:{font:{size:10},color:TC},grid:{color:GR}}}}
+});
+
+new Chart(document.getElementById('chanDonut'),{type:'doughnut',data:{
+  labels:['Trade/Retail','Govt Canteen','Online','Related Party'],
+  datasets:[{data:[68,17,8,7],backgroundColor:['#1A2E42',GLD,GRN,RED],borderWidth:0}]},
+  options:{...bo,cutout:'62%',plugins:{legend:{display:false}}}
+});
+
+new Chart(document.getElementById('prodGrowth'),{type:'bar',data:{
+  labels:['Nutri Blender','Triply PC','Induction','Ceramic Prod.','LPG Stove','SS PC','ERC Cooker','Electric Kettle','SS Utensils','ALU PC','Grinder','Non-stick','Kitchen Mach.','Tower Fan','HAC Cooker','ALU Utensils'],
+  datasets:[{data:[250,124,85,75,17,18.7,14.4,31,14.2,5.7,3.0,-3.7,-16.8,-21.5,-13.2,-25.8],
+    backgroundColor:[GRN,GRN,GRN,GRN,TEAL,TEAL,TEAL,TEAL,TEAL,GLD,GLD,GRY,RED,RED,RED,RED],borderRadius:4}]},
+  options:{indexAxis:'y',...bo,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{font:{size:9},color:TC,callback:v=>v+'%'},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC},grid:{color:GR}}}}
+});
+
+// ── PAGE 4: STATES ──
+new Chart(document.getElementById('stateYoY'),{type:'bar',data:{
+  labels:['Tamil Nadu','Kerala','Maharashtra','Karnataka','Andhra Pr.','Pondicherry','Telangana','West Bengal'],
+  datasets:[
+    {label:'FY23',data:[92.03,7.99,3.70,3.44,2.51,0.15,1.45,0.15],backgroundColor:GLD,borderRadius:3},
+    {label:'FY24',data:[97.54,10.86,4.52,3.46,1.56,2.46,2.89,0.34],backgroundColor:BLU,borderRadius:3},
+    {label:'FY25',data:[87.94,9.24,3.75,2.36,3.66,1.41,1.76,0.64],backgroundColor:TEAL,borderRadius:3},
+    {label:'FY26',data:[92.88,7.04,4.38,2.83,3.03,2.12,2.17,0.76],backgroundColor:GRN,borderRadius:3}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:9},color:TC,boxWidth:8}}},
+  scales:{x:{ticks:{font:{size:9},color:TC,maxRotation:30},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'Cr'},grid:{color:GR}}}}
+});
+
+new Chart(document.getElementById('stateTrend'),{type:'line',data:{
+  labels:['FY23','FY24','FY25','FY26'],
+  datasets:[
+    {label:'Kerala',data:[7.99,10.86,9.24,7.04],borderColor:RED,tension:0.3,fill:false,pointRadius:3,pointBackgroundColor:RED},
+    {label:'Maharashtra',data:[3.70,4.52,3.75,4.38],borderColor:BLU,tension:0.3,fill:false,pointRadius:3,pointBackgroundColor:BLU},
+    {label:'Karnataka',data:[3.44,3.46,2.36,2.83],borderColor:TEAL,tension:0.3,fill:false,pointRadius:3,pointBackgroundColor:TEAL},
+    {label:'Telangana',data:[1.45,2.89,1.76,2.17],borderColor:GLD,tension:0.3,fill:false,pointRadius:3,pointBackgroundColor:GLD},
+    {label:'Pondicherry',data:[0.15,2.46,1.41,2.12],borderColor:PUR,tension:0.3,fill:false,pointRadius:3,pointBackgroundColor:PUR}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:9},color:TC,boxWidth:8}}},
+  scales:{x:{ticks:{font:{size:9},color:TC},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'Cr'},grid:{color:GR}}}}
+});
+
+// State bubble drill-down
+const bw=document.getElementById('stateBubbles2');
+let sCh=null;
+Object.keys(stateProducts).forEach(s=>{
+  const b=document.createElement('button');b.className='bubble';b.textContent=s;
+  b.onclick=()=>loadState2(s,b);bw.appendChild(b);
+});
+function loadState2(name,btn){
+  document.querySelectorAll('#stateBubbles2 .bubble').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('stateDetailSection').style.display='grid';
+  const d=stateProducts[name];
+  const prods=Object.keys(d).sort((a,b2)=>d[b2][3]-d[a][3]).slice(0,10);
+  document.getElementById('stateDetailTitle2').textContent=name+' — Top products (₹ Lakhs)';
+  if(sCh)sCh.destroy();
+  sCh=new Chart(document.getElementById('stateProductChart2'),{type:'bar',data:{
+    labels:prods,
+    datasets:[
+      {label:'FY23',data:prods.map(p=>d[p][0]),backgroundColor:GLD,borderRadius:3},
+      {label:'FY24',data:prods.map(p=>d[p][1]),backgroundColor:BLU,borderRadius:3},
+      {label:'FY25',data:prods.map(p=>d[p][2]),backgroundColor:TEAL,borderRadius:3},
+      {label:'FY26',data:prods.map(p=>d[p][3]),backgroundColor:GRN,borderRadius:3}
+    ]},options:{...bo,plugins:{legend:{labels:{font:{size:9},color:TC,boxWidth:8}}},
+    scales:{x:{ticks:{font:{size:9},color:TC,maxRotation:35},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'L'},grid:{color:GR}}}}
+  });
+  const st=stateData[name];
+  const chg=((st[3]-st[2])/Math.max(Math.abs(st[2]),0.01)*100).toFixed(1);
+  const cc=chg>0?'var(--green)':'var(--red)';
+  document.getElementById('stateStats2').innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+      <div style="background:var(--bg3);border-radius:7px;padding:10px;border:1px solid var(--bdr);">
+        <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">FY26 Revenue</div>
+        <div style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--gold);">₹${st[3].toFixed(2)}Cr</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:7px;padding:10px;border:1px solid var(--bdr);">
+        <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">vs FY25</div>
+        <div style="font-family:'Crimson Pro',serif;font-size:20px;color:${cc};">${chg>0?'+':''}${chg}%</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:7px;padding:10px;border:1px solid var(--bdr);">
+        <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">FY24</div>
+        <div style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--t1);">₹${st[1].toFixed(2)}Cr</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:7px;padding:10px;border:1px solid var(--bdr);">
+        <div style="font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">3yr CAGR</div>
+        <div style="font-family:'Crimson Pro',serif;font-size:20px;color:var(--teal);">${(((st[3]/Math.max(st[0],0.01))**(1/3)-1)*100).toFixed(1)}%</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--t3);line-height:1.7;">
+      <strong style="color:var(--t1);">Top 3 products FY26:</strong><br>
+      ${Object.entries(d).sort((a,b2)=>b2[1][3]-a[1][3]).slice(0,3).map(([p,v])=>`${p}: ₹${v[3].toFixed(0)}L`).join(' · ')}
+    </div>`;
+}
+
+// Heatmap
+(function(){
+  const states=['Tamil Nadu','Kerala','Maharashtra','Karnataka','Andhra Pradesh','Pondicherry','Telangana','West Bengal','Gujarat','Assam','Rajasthan'];
+  const prods=['Grinder','ALU PC','Non-stick','SS PC','LPG Stove','KM/Mixi','Nutri Bldr','Triply PC','SS Util','KET','Induction'];
+  const matrix={
+    'Tamil Nadu':   [1625,1540,1035,843,745,727,272,204,489,166,162],
+    'Kerala':       [260,641,1336,1549,480,494,112,78,192,233,50],
+    'Maharashtra':  [1024,129,211,1050,345,167,86,348,226,79,80],
+    'Karnataka':    [649,135,319,407,384,133,86,120,150,28,46],
+    'Andhra Pradesh':[250,112,141,989,442,219,87,44,139,46,44],
+    'Pondicherry':  [549,165,153,129,180,167,210,18,192,104,0.4],
+    'Telangana':    [194,191,211,738,56,25,171,109,126,162,18],
+    'West Bengal':  [4,5,3,125,0,134,119,2,4,93,2],
+    'Gujarat':      [59,16,47,99,36,20,8,33,0,4,0],
+    'Assam':        [3,36,42,17,95,16,13,3,5,24,2],
+    'Rajasthan':    [0,0,50,289,29,23,30,10,0,0,0]
+  };
+  const maxVal=Math.max(...Object.values(matrix).flat());
+  const con=document.getElementById('heatmapContainer');
+  let h='<table style="border-collapse:collapse;width:100%;font-size:10px;">';
+  h+='<thead><tr><td style="padding:5px 8px;color:var(--t3);font-size:9px;font-weight:600;width:100px;"></td>';
+  prods.forEach(p=>{h+=`<td style="padding:4px 2px;color:var(--t3);font-size:9px;text-align:center;writing-mode:vertical-lr;height:65px;vertical-align:bottom;font-weight:600;">${p}</td>`;});
+  h+='<td style="padding:5px 8px;color:var(--t3);font-size:9px;font-weight:600;">Total</td></tr></thead><tbody>';
+  states.forEach(s=>{
+    const row=matrix[s];const tot=row.reduce((a,b)=>a+b,0);
+    h+=`<tr><td style="padding:5px 8px;color:var(--t2);font-size:10px;white-space:nowrap;font-weight:500;border-bottom:1px solid var(--bdr);">${s}</td>`;
+    row.forEach(v=>{
+      const i=Math.min(v/maxVal,1);
+      const a=0.07+i*0.88;
+      const bg=v===0?'rgba(255,255,255,0.02)':`rgba(233,168,76,${a})`;
+      const fc=i>0.4?'rgba(255,255,255,0.92)':'rgba(255,255,255,0.6)';
+      const txt=v===0?'<span style="color:var(--t3);">—</span>':`<span style="color:${fc};font-weight:${i>0.25?600:400};">${v>=10?Math.round(v):v.toFixed(1)}</span>`;
+      h+=`<td style="padding:3px 2px;text-align:center;background:${bg};border:1px solid rgba(0,0,0,0.3);">${txt}</td>`;
+    });
+    h+=`<td style="padding:3px 8px;color:var(--gold);font-size:10px;font-weight:600;border-bottom:1px solid var(--bdr);">${Math.round(tot)}</td></tr>`;
+  });
+  h+='</tbody></table><div style="font-size:9px;color:var(--t3);margin-top:6px;font-style:italic;">₹ Lakhs · Darker = higher · — = zero sales in FY26</div>';
+  con.innerHTML=h;
+})();
+
+// ── PAGE 6: STRATEGY ──
+new Chart(document.getElementById('stateTgt'),{type:'bar',data:{
+  labels:['Tamil Nadu','Kerala','Maharashtra','Karnataka','Andhra Pr.','Pondicherry','Telangana','West Bengal','Assam','Gujarat'],
+  datasets:[
+    {label:'FY26 Actual',data:[9288,7035,4382,2829,3031,2119,2171,757,620,428],backgroundColor:GLD,borderRadius:3},
+    {label:'FY27 Target',data:[9800,8500,5500,3800,3500,2600,3000,1200,900,700],backgroundColor:GRN,borderRadius:3}
+  ]},options:{...bo,plugins:{legend:{labels:{font:{size:10},color:TC,boxWidth:10}}},
+  scales:{x:{ticks:{font:{size:9},color:TC,maxRotation:30},grid:{color:GR}},y:{ticks:{font:{size:9},color:TC,callback:v=>'₹'+v+'L'},grid:{color:GR}}}}
+});
+</script>
+</body>
+</html>
